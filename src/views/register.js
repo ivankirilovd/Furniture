@@ -44,11 +44,11 @@ export async function registerPage(ctx){
 		const repass = formData.get('rePass').trim();
 
 		if(email === '' || password === '' || repass === ''){
-			return ctx.render(registerTemplate(onSubmit,'All fields are required !',email === '', password === '', repass === ''))
+			return ctx.render(registerTemplate(onSubmit,'All fields are required!',email === '', password === '', repass === ''))
 		}
 
 		if(password !== repass){
-			return ctx.render(registerTemplate(onSubmit,'Passwords don\'t match  !',false, true, true))
+			return ctx.render(registerTemplate(onSubmit,'Passwords don\'t match!',false, true, true))
 		}
 		await register(email,password);
 		ctx.setUserNav();
